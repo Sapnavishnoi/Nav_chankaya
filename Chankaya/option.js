@@ -17,4 +17,20 @@ module.exports = class Options extends Model {
             questionId: Joi.number().integer().greater(0)
         });
     }
+    
+    static get relationMappings() {
+    
+    const User = require('./question');
+
+
+        return {
+            question: {
+                relation: Model.BelongsToOneRelation,
+                modelClass: Question,
+                join: {
+                    from: 'option.questionId',
+                    to: 'question.id'
+                }
+            }
+        };
 };
