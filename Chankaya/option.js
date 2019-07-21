@@ -14,6 +14,7 @@ module.exports = class Options extends Model {
 
         return Joi.object({
             id: Joi.number().integer().greater(0),
+            correct_answer: Joi.string().required(),
             questionId: Joi.number().integer().greater(0)
         });
     }
