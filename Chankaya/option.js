@@ -24,12 +24,12 @@ module.exports = class Options extends Model {
 
 
         return {
-            question: {
+            questions: {
                 relation: Model.BelongsToOneRelation,
                 modelClass: Question,
                 join: {
                     from: 'option.questionId',
-                    to: 'question.id'
+                    to: 'questions.id'
                 }
             }
         };
