@@ -11,7 +11,6 @@ module.exports = class Question extends Model {
 
         return Joi.object({
             id: Joi.number().integer().greater(0),
-            optionId: Joi.number().integer().greater(0).required(),
             question : Joi.string(),
             correct_answer: Joi.string().required(),
             category: Joi.string().required()
@@ -26,11 +25,11 @@ module.exports = class Question extends Model {
 
         return {
             option: {
-                relation: Model.BelongsToOneRelation,
+                relation: Model.HasManyRelation,
                 modelClass: Options,
                 join: {
                     from: 'Question.id',
-                    to: 'options.optionId'
+                    to: 'options.questionId'
                 }
             }
         };
