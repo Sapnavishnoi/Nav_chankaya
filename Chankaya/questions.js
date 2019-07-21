@@ -12,7 +12,6 @@ module.exports = class Question extends Model {
         return Joi.object({
             id: Joi.number().integer().greater(0),
             question : Joi.string(),
-            correct_answer: Joi.string().required(),
             category: Joi.string().required()
         });
     }
